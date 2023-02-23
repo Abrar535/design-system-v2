@@ -1,11 +1,24 @@
 {
-  "name": "design-system-v2",
+  "name": "design-system-universal",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-component-npm-example.umd.cjs",
+  "module": "./dist/vue-component-npm-example.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-component-npm-example.js",
+      "require": "./dist/vue-component-npm-example.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
     "preview": "vite preview"
   },
   "dependencies": {
